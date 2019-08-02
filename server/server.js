@@ -22,8 +22,28 @@ app.use(sessionMiddleware);
 app.use(passport.initialize());
 app.use(passport.session());
 
+let sendgridkey = process.env.SENDGRID_API_KEY;
+
 /* Routes */
 app.use('/api/user', userRouter);
+
+//route for SendGrid 
+app.post('/send', (req, res) => {
+    console.log("/send route hit");
+   // using Twilio SendGrid's v3 Node.js Library
+  // https://github.com/sendgrid/sendgrid-nodejs
+//   const sgMail = require('@sendgrid/mail');
+//   sgMail.setApiKey(sendgridkey);
+//  const msg = {
+//    to: "mkellenbaker@gmail.com",
+//    from: "test@example.com",
+//    subject: "Sending with Twilio SendGrid is Fun",
+//    text: "and easy to do anywhere, even with Node.js",
+//    html: "<strong>and easy to do anywhere, even with Node.js</strong>"
+//  };
+//     sgMail.send(msg)
+//     res.sendStatus(200);
+  })
 
 // Serve static files
 app.use(express.static('build'));
