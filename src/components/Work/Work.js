@@ -7,10 +7,13 @@ import {
 } from "react-router-dom";
 import { connect } from "react-redux";
 import "./Work.css";
+
+//photos 
 import pic from "../images/githubActivity.png";
 import kellenbaker from "../images/kellenbaker.jpg";
 import publicSpeaking from "../images/publicSpeaking.jpg";
 import silentAction from "../images/silentAction.png";
+import whatToSay from "../images/fiveHealthyPhrases.png";
 
 //semantic ui
 import { Card, Icon, Image } from "semantic-ui-react";
@@ -33,7 +36,11 @@ class Work extends Component {
 
   handleSilentAction = () => {
     window.open("https://silent-action.herokuapp.com/#/home", "_blank");
-  }
+  };
+
+  handleWithAll = () => {
+    window.open("https://withall-kellen.herokuapp.com/#/home", "_blank");
+  };
 
   //this link needs to be changed upon creation of CV page
   handleCV = () => {
@@ -65,7 +72,22 @@ class Work extends Component {
           <Image src={silentAction} />
           <Card.Content>
             <Card.Header>Silent Action</Card.Header>
-            <Card.Description>A crowdfunding platform where users can host online auctions to benefit community members facing medical expenses.</Card.Description>
+            <Card.Description>
+              A crowdfunding platform where users can host online auctions to
+              benefit community members facing medical expenses.
+            </Card.Description>
+          </Card.Content>
+        </Card>
+
+        <Card onClick={this.handleWithAll} className="wow flipInY">
+          <Image src={whatToSay} />
+          <Card.Content>
+            <Card.Header>What To Say</Card.Header>
+            <Card.Description>
+              Automated content distribution and data collection for Minneapolis
+              nonprofit WithAll. This link brings you to a copy of the code I
+              helped build.
+            </Card.Description>
           </Card.Content>
         </Card>
 
